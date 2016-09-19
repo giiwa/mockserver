@@ -1,0 +1,25 @@
+
+<div class='head'>$lang.get('url.create.title')</div>
+
+#parse('/widget/widget.message.html')
+
+<div class='tabs'>
+	<a href='/admin/url' >$lang.get('a.url')</a>
+	<a href='/admin/url/create' class='selected'>$lang.get('a.create')</a>
+</div>
+
+<form action='/admin/url/create'  method='post' class='form' enctype="multipart/form-data">
+	<div><label><h3>$lang.get('url.url')(<r>*</r>):</h3><input type='text' name='url' value="$!url"/></label></div>
+	<div><label><h3>$lang.get('url.enabled'):</h3><input type='checkbox' name='enabled'/></label></div>
+	<div><label><h3>$lang.get('url.type'):</h3>
+		<select name='type'>
+			<option value='application/json;charset=UTF-8'>application/json;charset=UTF-8</option>
+			<option value='application/octet'>application/octet</option>
+			<option value='text/html;charset=UTF-8'>text/html;charset=UTF-8</option>
+		</select>
+		</label></div>
+	<div><label><h3>$lang.get('url.content'):</h3><textarea name='content'>$!content</textarea></label></div>
+
+	<button type='submit'>$lang.get('btn.create')</button>
+</form>
+
