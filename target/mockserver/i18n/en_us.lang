@@ -1,0 +1,14 @@
+a.url=Url
+menu.mockserver=Mockserver
+menu.url=Url
+url.content=Content
+url.create.title=Create url
+url.created=Created
+url.enabled=Enable
+url.enabled_0=on
+url.enabled_1=off
+url.index.title=Url management
+url.type=content type
+url.updated=Updated
+url.url=Url
+url.edit.title=Edit url

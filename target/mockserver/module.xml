@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module version="1.0">
+  <id>238</id>
+  <name>mockserver</name>
+  <package>org.giiwa.mockserver.web</package>
+  <screenshot>/images/demo_screenshot.png</screenshot>
+  <version>1.0.1</version>
+  <build>1609222007</build>
+  <enabled>true</enabled>
+  <readme>mock server module</readme>
+  <listener>
+    <class>org.giiwa.mockserver.web.MockserverListener</class>
+  </listener>
+  <setting>
+  </setting>
+  <filter>
+  </filter>
+  <depends>
+  </depends>
+</module>

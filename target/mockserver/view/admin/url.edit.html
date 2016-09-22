@@ -1,0 +1,24 @@
+
+<div class='head'>$lang.get('url.edit.title')</div>
+
+#parse('/widget/widget.message.html')
+
+<div class='tabs'>
+	<a href='/admin/url' >$lang.get('a.url')</a>
+	<a href='/admin/url/edit?id=$id' class='selected'>$lang.get('a.edit')</a>
+</div>
+
+<form action='/admin/url/edit'  method='post' class='form' enctype="multipart/form-data">
+	<input type='hidden' name='id' value='$id' />
+	<div><label><h3>$lang.get('url.url'):</h3><i>$!url</i></label></div>
+	<div><label><h3>$lang.get('url.enabled'):</h3><input type='checkbox' name='enabled' #if($enabled==0) checked #end/></label></div>
+	<div><label><h3>$lang.get('url.type'):</h3>
+		<select name='type'>
+			<option value='application/json;charset=UTF-8' #if($type=='application/json;charset=UTF-8') selected #end>application/json;charset=UTF-8</option>
+			<option value='text/html;charset=UTF-8' #if($type=='text/html;charset=UTF-8') selected #end>text/html;charset=UTF-8</option>
+		</select>
+		</label></div>
+	<div><label><h3>$lang.get('url.content'):</h3><textarea name='content'>$!content</textarea></label></div>
+	
+	<button type='submit'>$lang.get('btn.save')</button>
+</form>

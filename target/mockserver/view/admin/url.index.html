@@ -1,0 +1,71 @@
+<div class='head'>$lang.get('url.index.title')</div>
+
+#parse('/widget/widget.message.html')
+
+<div class='tabs'>
+	<a href='/admin/url' class='selected'>$lang.get('a.url')</a>
+</div>
+
+<div class='search'>
+	<form action='/admin/url' method='get' #if($currentpage>0) style='display:none' #end >
+		<span><label><h3>$lang.get('url.url'):</h3><input type='text' name='name' value='$!name'/></label></span>
+		<span><label><h3>$lang.get('url.enabled'):</h3>
+			<select name='enabled'>
+				<option value=''></option>
+				<option value='0' #if($enabled == 0) selected #end>$lang.get('url.enabled_0')</option>
+				<option value='1' #if($enabled == 1) selected #end>$lang.get('url.enabled_1')</option>
+			</select>
+		</label></span>
+		<button type='submit' class='btns1 icon icon-search'></button>
+	</form>
+	
+	<div class='s1tab #if($currentpage>0) down #else up #end'>
+		<div class='arrow'></div>
+	</div>
+</div>
+
+<table id='demo-table' class='tablesorter nospace' border="0" cellpadding="0" cellspacing="1">
+	<thead>
+		<tr>
+			<th>$lang.get('url.url')</th>
+			<th>$lang.get('url.enabled')</th>
+			<th>$lang.get('url.type')</th>
+			<th>$lang.get('url.content')</th>
+			<th>$lang.get('url.updated')</th>
+			<th>$lang.get('url.created')</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+#foreach($f in $list)
+	<tr>
+		<td><a href="/admin/url/detail?id=$f.id">$f.url</a></td>
+		<td>$!lang.get("url.enabled_$f.enabled")</td>
+		<td>$!f.type</td>
+		<td>$!lang.truncate($f.content, 30)</td>
+		<td>$!lang.format($f.updated, 'yyyy-MM-dd HH:mm:ss')</td>
+		<td>$!lang.format($f.created, 'yyyy-MM-dd HH:mm:ss')</td>
+		<td>
+			<a class='btn btn-info btn-xs' href='/admin/url/edit?id=$f.id'>$lang.get('a.edit')</a>
+			<a class="btn btn-danger btn-xs" href='javascript:;' onclick='_delete("$f.id", this)'>$lang.get('a.delete')</a>
+		</td>
+	</tr>
+#end
+	</tbody>
+</table>
+
+ #parse('/widget/goto.page.html')
+
+<div class='btns'>
+	<a class='btn btn-success' href="/admin/url/create">$lang.get('a.create')</a>
+</div>
+
+<script>
+function _delete(id, o) {
+	if(confirm("$lang.get('title.are_u_sure_delete')")) {
+		$.post("/admin/url/delete", {id:id}, function(d){
+			$(o).parent().parent().remove();
+		})
+	}
+}
+</script>
