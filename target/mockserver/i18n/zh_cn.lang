@@ -1,6 +1,6 @@
-a.url=Url
+a.url=Url管理
 menu.mockserver=Mockserver
-menu.url=Url
+menu.url=Url管理
 url.content=返回内容
 url.create.title=创建Url
 url.created=创建

@@ -26,7 +26,9 @@ import org.giiwa.framework.web.Path;
 // TODO: Auto-generated Javadoc
 public class url extends Model {
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.giiwa.framework.web.Model#onGet()
    */
   @Path(login = true, access = "access.config.admin")
@@ -73,7 +75,12 @@ public class url extends Model {
   public void create() {
     if (method.isPost()) {
       JSON jo = this.getJSON();
-      V v = V.create().copy(jo, "url", "type");
+      String url = this.getString("url");
+      if (!url.startsWith("/")) {
+        url = "/" + url;
+      }
+      V v = V.create().copy(jo, "type");
+      v.set("url", url);
       v.set("enabled", X.isSame(this.getString("enabled"), "on") ? 0 : 1);
       v.set("content", this.getHtml("content"));
       String id = Url.create(this.getString("url"), v);

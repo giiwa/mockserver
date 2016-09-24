@@ -39,7 +39,7 @@
 	<tbody>
 #foreach($f in $list)
 	<tr>
-		<td><a href="/admin/url/detail?id=$f.id">$f.url</a></td>
+		<td><a href="$f.url" target='_blank'>$f.url</a></td>
 		<td>$!lang.get("url.enabled_$f.enabled")</td>
 		<td>$!f.type</td>
 		<td>$!lang.truncate($f.content, 30)</td>

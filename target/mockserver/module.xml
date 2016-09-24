@@ -6,7 +6,7 @@
   <package>org.giiwa.mockserver.web</package>
   <screenshot>/images/demo_screenshot.png</screenshot>
   <version>1.0.1</version>
-  <build>1609222007</build>
+  <build>1609241116</build>
   <enabled>true</enabled>
   <readme>mock server module</readme>
   <listener>
